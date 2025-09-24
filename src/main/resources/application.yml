@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: ${SPRING_APP_NAME}
+
+  mail:
+    host: ${MAIL_HOST}
+    port: ${MAIL_PORT}
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls.enable: true
+    default-encoding: UTF-8
+
+cors:
+  originPatterns: ${CORS_ORIGINS}
+
+security:
+  jwt:
+    token:
+      secret-key: ${JWT_SECRET}
+      expire-length: ${JWT_EXPIRE}
+
+springdoc:
+  paths-to-match: ${SPRINGDOC_PATHS}
+  swagger-ui:
+    use-root-path: true
+
+management:
+  endpoints:
+    web:
+      base-path: ${ACTUATOR_PATH}
+      exposure:
+        include: ${ACTUATOR_EXPOSE}
+  endpoint:
+    health:
+      show-details: always
